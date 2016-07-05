@@ -8,16 +8,20 @@
   <body>
     <!-- Canvas element for investment chart -->
     <canvas id="investments" width="600" height="300"></canvas>
+    <canvas id="totalDeployed" width="600" height="300"></canvas>
 
     <script type="text/javascript">
-      var investmentData = [50000, 20000, 25000, 10000, 30000];
+      // global variables
+      var investmentData = [50000, 20000, 25000, 10000, 30000],
+          investmentCompanies = ["Company A", "Company B", "Company C", "Company D", "Company E"];
+
       // get investment canvas element
       var investments = document.getElementById('investments');
       // build investment chart
       var investmentChart = new Chart(investments, {
         type: 'bar',
         data: {
-              labels : ["Company A", "Company B", "Company C", "Company D", "Company E"],
+              labels : investmentCompanies,
               datasets : [{
                     label : 'Amount of Investment',
                     data : investmentData,
@@ -48,6 +52,23 @@
                 }
               }
             });
+        // global variables
+        var totalDeployedData = [10000,25000,25000,35000,55000],
+            totalDeployedDates = ["January","February","March","April","May"];
+
+        var totalDeployed = document.getElementById('totalDeployed');
+        var totalDeployedChart = new Chart(totalDeployed, {
+          type : 'line',
+          data : {
+            labels : totalDeployedDates,
+            datasets : [{
+              label : 'Total Amount Deployed',
+              data : totalDeployedData,
+
+
+            }],
+          }
+        });
 
   </script>
   </body>
