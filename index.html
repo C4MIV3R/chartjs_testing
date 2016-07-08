@@ -4,72 +4,101 @@
     <meta charset="utf-8">
     <title>Testing Chart.js</title>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.6/Chart.min.js"></script>
+    <script type="text/javascript" src="public/js/app.js"></script>
+    <link rel="stylesheet" href="public/styles/stylesheet.css" media="screen" title="no title" charset="utf-8">
   </head>
   <body>
     <!-- Canvas element for investment chart -->
-    <canvas id="investments" width="600" height="300"></canvas>
-    <canvas id="totalDeployed" width="600" height="300"></canvas>
+    <ul class="navUl">
+      <a href="#"><li>Investments</li></a>
+      <a href="#"><li>Total Amount Deployed</li></a>
+      <a href="#"><li>To be determined</li></a>
+      <a href="#"><li>To be determined</li></a>
+      <a href="#"><li>To be determined</li></a>
+      <a href="#"><li>To be determined</li></a>
+      <a id="clearButton" href="#"><li>Clear Charts</li></a>
+    </ul>
+
+    <canvas id="investments" width="600" height="250"></canvas>
+    <canvas id="totalDeployed" width="600" height="250"></canvas>
 
     <script type="text/javascript">
-      // global variables
-      var investmentData = [50000, 20000, 25000, 10000, 30000],
-          investmentCompanies = ["Company A", "Company B", "Company C", "Company D", "Company E"];
+    // global variables
+    var investmentData = [50000, 20000, 25000, 10000, 30000],
+        investmentCompanies = ["Company A", "Company B", "Company C", "Company D", "Company E"];
 
-      // get investment canvas element
-      var investments = document.getElementById('investments');
-      // build investment chart
-      var investmentChart = new Chart(investments, {
-        type: 'bar',
-        data: {
-              labels : investmentCompanies,
-              datasets : [{
-                    label : 'Amount of Investment',
-                    data : investmentData,
-                    backgroundColor : [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)'
-                  ],
-                    borderColor : [
-                      'rgba(255,99,132,1)',
-                      'rgba(54, 162, 235, 1)',
-                      'rgba(255, 206, 86, 1)',
-                      'rgba(75, 192, 192, 1)',
-                      'rgba(153, 102, 255, 1)'
-                    ],
-                    borderWidth: 1
-                  }]
-                },
-              options : {
-                scales : {
-                  yAxes : [{
-                    ticks : {
-                      beginAtZero : true
-                    }
-                  }]
-                }
-              }
-            });
-        // global variables
-        var totalDeployedData = [10000,25000,25000,35000,55000],
-            totalDeployedDates = ["January","February","March","April","May"];
-
-        var totalDeployed = document.getElementById('totalDeployed');
-        var totalDeployedChart = new Chart(totalDeployed, {
-          type : 'line',
-          data : {
-            labels : totalDeployedDates,
+    // get investment canvas element
+    var investments = document.getElementById('investments');
+    // build investment chart
+    var investmentChart = new Chart(investments, {
+      type: 'bar',
+      data: {
+            labels : investmentCompanies,
             datasets : [{
-              label : 'Total Amount Deployed',
-              data : totalDeployedData,
+                  label : 'Amount of Investment',
+                  data : investmentData,
+                  backgroundColor : [
+                  'rgba(255, 99, 132, 0.2)',
+                  'rgba(54, 162, 235, 0.2)',
+                  'rgba(255, 206, 86, 0.2)',
+                  'rgba(75, 192, 192, 0.2)',
+                  'rgba(153, 102, 255, 0.2)'
+                ],
+                  borderColor : [
+                    'rgba(255,99,132,1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)'
+                  ],
+                  borderWidth: 1
+                }]
+              },
+            options : {
+              scales : {
+                yAxes : [{
+                  ticks : {
+                    beginAtZero : true
+                  }
+                }]
+              }
+            }
+          });
 
+      // global variables
+      var totalDeployedData = [10000,25000,25000,35000,55000],
+          totalDeployedDates = ["January","February","March","April","May"];
 
-            }],
+      var totalDeployed = document.getElementById('totalDeployed');
+      var totalDeployedChart = new Chart(totalDeployed, {
+        type : 'line',
+        data : {
+          labels : totalDeployedDates,
+          datasets : [{
+            label : 'Total Amount Deployed',
+            fill : true,
+            lineTension : 0.1,
+            data : totalDeployedData,
+            backgroundColor : [
+              'rgba(75, 192, 192, 0.2)',
+            ],
+            borderColor : [
+              'rgba(75, 192, 192, 1)',
+            ],
+            borderWidth : 2
+          }]
+        },
+        options : {
+          scales : {
+            yAxes : [{
+              ticks : {
+                beginAtZero : true
+              }
+            }]
           }
-        });
+        }
+      });
+    </script>
 
-  </script>
   </body>
 </html>
