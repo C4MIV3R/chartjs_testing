@@ -7,8 +7,11 @@ html {
 
 .navUl {
   list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
   li {
-    display: inline-block;
+    display: inline-flex;
     line-height: 20px;
     margin-right: 1rem;
     padding: 1rem;
@@ -17,6 +20,7 @@ html {
     background-color: rgba(54, 162, 235, 1);
   }
   a {
+    display: inline-flex;
     color: white;
   }
   li:hover {

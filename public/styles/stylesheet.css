@@ -5,9 +5,12 @@ html {
   margin: 0 auto; }
 
 .navUl {
-  list-style: none; }
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around; }
   .navUl li {
-    display: inline-block;
+    display: inline-flex;
     line-height: 20px;
     margin-right: 1rem;
     padding: 1rem;
@@ -15,6 +18,7 @@ html {
     border-radius: 5px;
     background-color: #36a2eb; }
   .navUl a {
+    display: inline-flex;
     color: white; }
   .navUl li:hover {
     background-color: #ff6384; }
